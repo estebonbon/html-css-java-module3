@@ -71,3 +71,47 @@ Use a loop to iterate through the passwords and check each against the validatio
 Log whether each password is valid or invalid */
 
 const passwords = ["Password123", "short", "ValidPass123", "too_long_password_example", "12345"];
+
+/* 
+^: Start of the password.
+[a-zA-Z0-9]: Match any letter (uppercase or lowercase) or number.
+{8,20}: The password must be between 8 and 20 characters long.
+$: End of the password
+ */
+
+function validatePasswords(passwords) {
+  const check = /^[a-zA-Z0-9]{8,20}$/;
+  for(let i = 0; i < passwords.length; i++) {
+    if(check.test(passwords[i])) {
+      console.log(`${passwords[i]} is valid`);
+    } else {
+      console.log(`${passwords[i]} is invalid.`);
+    }
+  }
+}
+
+validatePasswords(passwords);
+
+/* Define an array of product objects with at least 3 sample products
+Write a function checkStockLevels that takes this array as input
+Use a loop to iterate through the array and check the stock level for each product
+Print a message indicating if the product is "In Stock" or "Out of Stock" */
+
+const products = [
+  { product: "Laptop", stock: 5 },
+  { product: "Headphones", stock: 0 },
+  { product: "Smartphone", stock: 3 }
+];
+
+function checkStockLevels(products) {
+  for (let i = 0; i < products.length; i++) {
+    if(products[i].stock > 0) {
+      console.log(`${products[i].product} is In Stock`);
+    } else {
+      console.log(`${products[i].product} is Out of Stock`);
+    }
+  }
+}
+
+
+checkStockLevels(products);
